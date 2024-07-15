@@ -1,0 +1,31 @@
+# Dependências do Node
+node_modules/
+# Dependências locais do Cypress
+cypress/screenshots/
+cypress/videos/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Diretórios de build
+dist/
+build/
+# Pasta coverage gerada pelo Jest
+coverage/
+# Pasta de relatórios de Cypress
+cypress/reports/
+# Diretórios de caches do npm
+.npm/
+.cache/
+# Pastas do sistema operacional
+.DS_Store
+Thumbs.db
+# Arquivos de ambiente
+.env
+.env.test
+.env.production
+# Outros
+.idea/
+.vscode/
