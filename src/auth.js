@@ -1,11 +1,6 @@
 const jwt = require('jsonwebtoken');
 const secretKey = 'your_secret_key'; // Substitua com uma chave secreta segura
 
-// Função para gerar um token
-function generateToken(user) {
-  return jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
-}
-
 // Função para verificar um token
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
@@ -20,5 +15,4 @@ function authenticateToken(req, res, next) {
     });
 }
 
-
-module.exports = { generateToken, authenticateToken };
+module.exports = { authenticateToken };

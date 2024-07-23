@@ -7,7 +7,7 @@ const secretKey = 'your_secret_key'; // Substitua com uma chave secreta segura
 
 // Função para gerar um token
 function generateToken(usuario) {
-    return jwt.sign({ id: usuario.id, login: usuario.login }, secretKey, { expiresIn: '1h' });
+    return jwt.sign({ id: usuario.id, login: usuario.login, tipo: usuario.tipousuario }, secretKey, { expiresIn: '1h' });
 }
 
 // Serviço de autenticação (você pode manter a lógica aqui ou mover para um serviço separado)
