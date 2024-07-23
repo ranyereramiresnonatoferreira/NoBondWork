@@ -6,6 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/api/usuarios', usuarioController);
+app.use('/api/protected', usuarioController);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
