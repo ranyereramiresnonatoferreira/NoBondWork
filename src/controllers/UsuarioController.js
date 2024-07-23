@@ -27,10 +27,8 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/protected', auth.authenticateToken, (req, res) => {
-    res.json({
-        message: 'Você acessou uma rota protegida!',
-        user: req.user // Informações do usuário decodificadas do token
-    });
+    const id = req.user.id;
+    res.json(id);
 });
 
 
