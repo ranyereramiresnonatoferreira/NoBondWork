@@ -23,7 +23,7 @@ class EventoRepository {
         const query = `
             UPDATE eventos
             SET DataHora = $1, NomeEvento = $2, DescricaoEvento = $3, CepEvento = $4, RuaEvento = $5, NumeroEvento = $6, BairroEvento = $7, CidadeEvento = $8, UfEvento = $9, ComplementoEvento = $10
-            WHERE Id = $12
+            WHERE Id = $11
             RETURNING *`;
         const values = [
             evento.dataHora, evento.nomeEvento, evento.descricaoEvento,
