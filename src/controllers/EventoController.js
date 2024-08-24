@@ -76,4 +76,14 @@ router.get('/', auth.authenticateToken, async (req, res) => {
     }
 });
 
+// Nova rota para obter todos os eventos
+router.get('/all', auth.authenticateToken, async (req, res) => {
+    try {
+        const eventos = await eventoService.getAll();
+        res.status(200).json(eventos);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
 module.exports = router;

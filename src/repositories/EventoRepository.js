@@ -1,7 +1,8 @@
 const pool = require('../db');
 const EventoModel = require('../models/EventoModel');
 
-class EventoRepository {
+class EventoRepository 
+{
     // Adiciona um novo evento
     async add(evento) {
         const query = `
@@ -52,8 +53,27 @@ class EventoRepository {
     }
 
     async getByIdResponsavel(idResponsavel) {
-        const query = 'SELECT * FROM eventos WHERE IdResponsavel = $1';
-        const result = await pool.query(query, [idResponsavel]);
+        const query = 'SELECT * FROM eventos';
+        const result = await pool.query(query);
+        return result.rows.map(row => new EventoModel(
+            row.id,
+            row.datahora,
+            row.nomeevento,
+            row.descricaoevento,
+            row.cepevento,
+            row.ruaevento,
+            row.numeroevento,
+            row.bairroevento,
+            row.cidadeevento,
+            row.ufevento,
+            row.complementoevento,
+            row.idresponsavel
+        ));
+    }
+
+    async getAll() {
+        const query = 'SELECT * FROM eventos';
+        const result = await pool.query(query);
         return result.rows.map(row => new EventoModel(
             row.id,
             row.datahora,

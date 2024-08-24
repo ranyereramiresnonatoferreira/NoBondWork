@@ -20,6 +20,10 @@ class EventoService {
     async getByIdResponsavel(idResponsavel) {
         return await eventoRepository.getByIdResponsavel(idResponsavel);
     }
+
+    async getAll() {
+        return await eventoRepository.getAll();
+    }
 }
 
 module.exports = new EventoService();
