@@ -51,4 +51,17 @@ router.get('/evento/:idEvento', auth.authenticateToken, async (req, res) => {
     }
 });
 
+router.get('/usuario', auth.authenticateToken, async (req, res) => {
+    try {
+        const idResponsavel = req.user.id; // Extraído do token
+        if (!idResponsavel) {
+            return res.status(401).json({ error: 'ID do responsável não encontrado no token' });
+        }
+        const solicitacoes = await solicitacaoService.getByIdUsuario(idResponsavel);
+        res.status(200).json(solicitacoes);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
 module.exports = router;

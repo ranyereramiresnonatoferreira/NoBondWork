@@ -16,6 +16,10 @@ class SolicitacaoService {
     async getByIdEvento(idEvento) {
         return await solicitacaoRepository.getByIdEvento(idEvento);
     }
+
+    async getByIdUsuario(idUsuario) {
+        return await solicitacaoRepository.getByIdUsuario(idUsuario);
+    }
 }
 
 module.exports = new SolicitacaoService();

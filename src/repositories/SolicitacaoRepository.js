@@ -44,6 +44,19 @@ class SolicitacaoRepository {
             row.idstatus
         ));
     }
+
+    async getByIdUsuario(idUsuario) {
+        const query = 'SELECT * FROM solicitacoes WHERE idusuario = $1';
+        const result = await pool.query(query, [idUsuario]);
+        return result.rows.map(row => new SolicitacaoModel(
+            row.id,
+            row.idevento,
+            row.idusuario,
+            row.valoroferecido,
+            row.mensagem,
+            row.idstatus
+        ));
+    }
 }
 
 module.exports = new SolicitacaoRepository();
